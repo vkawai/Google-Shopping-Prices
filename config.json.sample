@@ -1,0 +1,6 @@
+{
+    "api_key": "<KEY>",
+    "database_id": "<DB_ID>",
+    "variant_a_url": "<URL>",
+    "variant_b_url": "<URL>"
+}
