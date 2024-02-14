@@ -10,7 +10,7 @@ class NDatabase:
         self.database_id = database_id
 
     def get_db_entry(self, entry: GShopEntry):
-        return self.notion.databases.query(database_id="1ba2216875c8429ab7baebb27fa74f7f", **{
+        return self.notion.databases.query(database_id=self.database_id, **{
             "filter": {
                 "property": "Store URL",
                 "url": {
