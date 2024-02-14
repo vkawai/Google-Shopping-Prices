@@ -1,6 +1,6 @@
 
 class NDatabaseProperty:
-    def title(text: str):
+    def title(text: str) -> dict:
         return {
             "id": "title",
             "type": "title",
@@ -14,7 +14,7 @@ class NDatabaseProperty:
             ]
         }
     
-    def select(name: str):
+    def select(name: str) -> dict:
         return {
             "type": "select",
             "select": {
@@ -22,7 +22,7 @@ class NDatabaseProperty:
             }
         }
     
-    def rich_text(text: str):
+    def rich_text(text: str) -> dict:
         return {
             "type": "rich_text",
             "rich_text": [
@@ -35,13 +35,13 @@ class NDatabaseProperty:
             ]
         }
     
-    def number(number: str):
+    def number(number: float) -> dict:
         return {
             "type": "number",
             "number": number
         }
     
-    def url(url_string: str):
+    def url(url_string: str) -> dict:
         return {
             "type": "url",
             "url": url_string

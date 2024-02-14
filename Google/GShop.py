@@ -23,6 +23,7 @@ class GShop:
         google_shopping_data = []
         
         for result in selector.css(".sh-osd__offer-row"):
+            product_name = selector.css(".BvQan::text").get()
             store_name = result.css(".b5ycib.shntl::text").get()
             details = result.css(".SH30Lb.yGibJf div::text").get()
             price_value = result.css(".drzWO::text").get()
@@ -32,11 +33,11 @@ class GShop:
             store_url_value = result.css(".UxuaJe::attr(href)").get()
             store_url_link = store_url_value.replace("/url?q=", '').split('%')[0]
 
-            google_shopping_data.append(GShopEntry(store_name, details, price, shipping_fee, store_url_link))
+            google_shopping_data.append(GShopEntry(product_name, store_name, details, price, shipping_fee, store_url_link))
             
         return google_shopping_data
     
-    def get_stores_prices(url: str) -> list:
+    def get_stores_prices(url: str) -> list[GShopEntry]:
         """Gets data from url, and parses to a list of GShopEntry objects"""
         data = GShop.request_product_comparison_data(url)
         return GShop.parse_product_comparison_data(data)
